@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tegneller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultat {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tell tegn i et ord</h1>
+        <div class="input-group">
+            <input type="text" id="tekstInput" placeholder="Skriv et ord her...">
+            <button onclick="tellTegn()">Tell</button>
+        </div>
+        <div id="resultat"></div>
+    </div>
+
+    <script>
+        function tellTegn() {
+            const inputFelt = document.getElementById('tekstInput');
+            const resultatFelt = document.getElementById('resultat');
+            const ord = inputFelt.value.trim();
+
+            if (ord === "") {
+                resultatFelt.textContent = "Vennligst skriv inn et ord først.";
+                return;
+            }
+
+            const antallTegn = ord.length;
+            resultatFelt.textContent = `Ordet ${ord} består av ${antallTegn} tegn`;
+        }
+    </script>
+
+</body>
+</html>
